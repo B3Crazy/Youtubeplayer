@@ -1,4 +1,5 @@
 ﻿using NAudio.Wave;
+using System.Runtime.CompilerServices;
 using System.Speech.Synthesis;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
