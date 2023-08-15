@@ -3,9 +3,7 @@
 Work work = new();
 string? songname;
 Console.WriteLine("starting Youtubeplayer 1.0.4...");
-await work.CreateFile("audio.mp3");
 Console.WriteLine(work.intelligentPath);
-await work.DeleteFile("audio.mp3");
 Console.WriteLine();
 for (int i = 0; i < 101; i++)
 {
@@ -43,8 +41,6 @@ while (run)
         {
             run = false;
             Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("stopping application..."); Console.ResetColor();
-            await work.DeleteFile("audio.mp3");
-
         }
         else
         {
