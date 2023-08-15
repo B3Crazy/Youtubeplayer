@@ -167,5 +167,15 @@ namespace youtubeAudioplayer
             synth.Volume = Volume;
             synth.Speak(speech);
         }
+
+        public async Task CreateFile(string filename)
+        {
+            File.Create(filename);
+        }
+
+        public async Task DeleteFile(string filename)
+        {
+            File.Delete(filename);
+        }
     }
 }
