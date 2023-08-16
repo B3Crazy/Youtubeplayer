@@ -2,6 +2,7 @@
 
 Work work = new();
 string? songname;
+Console.ForegroundColor = ConsoleColor.White;
 Console.WriteLine("starting Youtubeplayer 1.0.4...");
 Console.WriteLine(work.intelligentPath);
 Console.WriteLine();

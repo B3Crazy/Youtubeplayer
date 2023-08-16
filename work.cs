@@ -52,10 +52,12 @@ namespace youtubeAudioplayer
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("to type a command press enter");
+            Console.CursorVisible = false;
             while (audioplayer.PlaybackState == PlaybackState.Playing || audioplayer.PlaybackState == PlaybackState.Paused)
             {
                 if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
                 {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("     type 'skip' to stop/ skip playback...");
                     Console.WriteLine("     type 'pause' or 'play' to pause/ resume playback...");
                     Console.WriteLine("     type 'download' to download the current song");
@@ -113,10 +115,11 @@ namespace youtubeAudioplayer
                                 Download();
                                 break;
                             default:
-                                Console.WriteLine($"{command} is no a known command");
+                                Console.WriteLine($"{command} is not a known command");
                                 break;
                         }
                     }
+                    Console.CursorVisible = false;
                 }
             }
             Console.ForegroundColor = ConsoleColor.White;
