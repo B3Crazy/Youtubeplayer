@@ -140,7 +140,7 @@ namespace youtubeAudioplayer
             Console.WriteLine(streamInfo);
             var stream = await youtube.Videos.Streams.GetAsync(streamInfo);
             Console.WriteLine(stream);
-            using (var fileStream = File.Create($"{Video} + .mp3")) { await stream.CopyToAsync(fileStream); }
+            using (var fileStream = File.Create($"{Video}.mp3")) { await stream.CopyToAsync(fileStream); }
             Console.WriteLine($"Download of {Video}.mp3 completed...");
             Console.ForegroundColor = ConsoleColor.Cyan;
         }
