@@ -1,8 +1,10 @@
 ﻿using NAudio.Wave;
 using System.Runtime.CompilerServices;
 using System.Speech.Synthesis;
+using System.Runtime.InteropServices;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
+using AngleSharp.Html.Dom.Events;
 
 namespace youtubeAudioplayer
 {
@@ -34,7 +36,6 @@ namespace youtubeAudioplayer
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
         }
-
         public async Task Player()
         {
             var audioplayer = new WaveOutEvent();
@@ -55,17 +56,16 @@ namespace youtubeAudioplayer
             Console.CursorVisible = false;
             while (audioplayer.PlaybackState == PlaybackState.Playing || audioplayer.PlaybackState == PlaybackState.Paused)
             {
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
+                if (Console.KeyAvailable && Console.ReadKey().Key != ConsoleKey.Backspace) {
                     Console.WriteLine("     type 'skip' to stop/ skip playback...");
                     Console.WriteLine("     type 'pause' or 'play' to pause/ resume playback...");
                     Console.WriteLine("     type 'download' to download the current song");
                     Console.WriteLine("     type 'queue' to queue another song");
                     Console.WriteLine("     press 'Enter' for stopping input typing");
                     Console.WriteLine();
-                    Task.Delay(100).Wait();
                     Console.Write("Insert command: ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Task.Delay(100).Wait();
                     Console.CursorVisible = true;
                     string? command = Console.ReadLine();
                     Console.ForegroundColor = ConsoleColor.White;
