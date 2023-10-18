@@ -56,7 +56,19 @@ namespace youtubeAudioplayer
             Console.CursorVisible = false;
             while (audioplayer.PlaybackState == PlaybackState.Playing || audioplayer.PlaybackState == PlaybackState.Paused)
             {
-                if (Console.KeyAvailable && Console.ReadKey().Key != ConsoleKey.Backspace) {
+                if(Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Spacebar)
+                {
+                    if(audioplayer.PlaybackState == PlaybackState.Paused )
+                    {
+                        audioplayer.Play();
+                        Thread.Sleep(10);
+                    } else if(audioplayer.PlaybackState == PlaybackState.Playing )
+                    {
+                        audioplayer.Pause();
+                        Thread.Sleep(10);
+                    }
+                }
+                if (Console.KeyAvailable && Console.ReadKey().Key != ConsoleKey.Spacebar) {
                     Console.WriteLine("     type 'skip' to stop/ skip playback...");
                     Console.WriteLine("     type 'pause' or 'play' to pause/ resume playback...");
                     Console.WriteLine("     type 'download' to download the current song");
@@ -113,6 +125,8 @@ namespace youtubeAudioplayer
                             case "download":
 
                                 Download();
+                                break;
+                            case null:
                                 break;
                             default:
                                 Console.WriteLine($"{command} is not a known command");
